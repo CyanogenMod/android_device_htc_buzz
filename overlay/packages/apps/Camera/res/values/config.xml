@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <!-- Whether or not the device is LDPI -->
+    <bool name="has_ldpi">true</bool>
+</resources>

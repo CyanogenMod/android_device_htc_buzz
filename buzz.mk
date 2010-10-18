@@ -21,15 +21,7 @@ TARGET_PREBUILT_KERNEL := device/htc/buzz/kernel
 endif # TARGET_KERNEL_CONFIG
 endif # TARGET_PREBUILT_KERNEL
 
-DEVICE_PACKAGE_OVERLAYS := device/htc/buzz/overlay
-
-PRODUCT_LOCALES += ldpi
-
-# Pick up overlay for features that depend on non-open-source files
-DEVICE_PACKAGE_OVERLAYS := vendor/htc/__DEVICE__/overlay
-
 $(call inherit-product, vendor/htc/buzz/buzz-vendor-blobs.mk)
-
 
 # Support files
 PRODUCT_COPY_FILES += \

@@ -96,9 +96,9 @@ chmod 755 ../../../vendor/htc/$DEVICE/proprietary/akmd
 
 # Prebuilt libraries that are needed to build open-source libraries
 PRODUCT_COPY_FILES += \\
-    vendor/htc/__DEVICE__/custom/logo.rle:out/target/product/__DEVICE__/root/logo.rle \\
-    vendor/htc/__DEVICE__/proprietary/libgps.so:out/target/product/__DEVICE__/obj/lib/libgps.so \\
-    vendor/htc/__DEVICE__/proprietary/libcamera.so:out/target/product/__DEVICE__/obj/lib/libcamera.so
+    	device/htc/__DEVICE__/custom/logo.rle:root/logo.rle \\
+   	vendor/htc/__DEVICE__/proprietary/libgps.so:obj/lib/libgps.so \\
+    	vendor/htc/__DEVICE__/proprietary/libcamera.so:obj/lib/libcamera.so
 
 # proprietary stuff
 PRODUCT_COPY_FILES += \\
@@ -119,7 +119,7 @@ PRODUCT_COPY_FILES += \\
 	vendor/htc/__DEVICE__/proprietary/libOmxMpeg4Dec.so:system/lib/libOmxMpeg4Dec.so \\
 	vendor/htc/__DEVICE__/proprietary/libOmxVidEnc.so:system/lib/libOmxVidEnc.so \\
 	vendor/htc/__DEVICE__/proprietary/libOmxCore.so:system/lib/libOmxCoress.so \\
-	vendor/htc/__DEVICE__/proprietary/d-adspsvc.so:system/lib/libmm-adspsvc.so \\
+	vendor/htc/__DEVICE__/proprietary/libmm-adspsvc.so:system/lib/libmm-adspsvc.so \\
     	vendor/htc/__DEVICE__/proprietary/libhtc_acoustic.so:system/lib/libhtc_acoustic.so \\
     	vendor/htc/__DEVICE__/proprietary/libhtc_ril.so:system/lib/libhtc_ril.so \\
     	vendor/htc/__DEVICE__/proprietary/buzz-keypad.kl:system/usr/keylayout/buzz-keypad.kl \\

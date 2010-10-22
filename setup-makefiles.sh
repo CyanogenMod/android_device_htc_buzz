@@ -53,7 +53,7 @@ DEVICE_PACKAGE_OVERLAYS := device/htc/__DEVICE__/overlay
 
 
 # Support files
-PRODUCT_COPY_FILES += \
+PRODUCT_COPY_FILES += \\
     packages/wallpapers/LivePicker/android.software.live_wallpaper.xml:/system/etc/permissions/android.software.live_wallpaper.xml
 
 EOF

@@ -23,6 +23,18 @@ endif # TARGET_PREBUILT_KERNEL
 
 $(call inherit-product, vendor/htc/buzz/buzz-vendor-blobs.mk)
 
+# Live wallpaper packages
+PRODUCT_PACKAGES := \
+    LiveWallpapers \
+    LiveWallpapersPicker \
+    MagicSmokeWallpapers \
+    VisualizationWallpapers \
+    librs_jni
+
+# Publish that we support the live wallpaper feature.
+PRODUCT_COPY_FILES := \
+    packages/wallpapers/LivePicker/android.software.live_wallpaper.xml:/system/etc/permissions/android.software.live_wallpaper.xml
+
 # Support files
 PRODUCT_COPY_FILES += \
     frameworks/base/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml \
@@ -73,7 +85,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.secure=0 \
-    ro.tether.denied=true
+    ro.tether.denied=false
 
 # Default network type
 # 0 => WCDMA Preferred.

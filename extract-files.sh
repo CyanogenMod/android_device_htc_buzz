@@ -24,6 +24,7 @@ adb pull /system/etc/AudioPreProcess.csv ../../../vendor/htc/$DEVICE/proprietary
 adb pull /system/etc/agps_rm ../../../vendor/htc/$DEVICE/proprietary
 adb pull /system/etc/firmware/bcm4329.hcd ../../../vendor/htc/$DEVICE/proprietary
 adb pull /system/etc/firmware/fw_bcm4329.bin ../../../vendor/htc/$DEVICE/proprietary
+adb pull /system/etc/firmware/fw_bcm4329_apsta.bin ../../../vendor/htc/$DEVICE/proprietary
 adb pull /system/etc/pvasflocal.cfg ../../../vendor/htc/$DEVICE/proprietary
 adb pull /system/etc/spn-conf.xml ../../../vendor/htc/$DEVICE/proprietary
 adb pull /system/etc/voicemail-conf.xml ../../../vendor/htc/$DEVICE/proprietary
@@ -91,6 +92,7 @@ PRODUCT_COPY_FILES += \\
 	vendor/htc/__DEVICE__/proprietary/AudioPreProcess.csv:system/etc/AudioPreProcess.csv \\
 	vendor/htc/__DEVICE__/proprietary/bcm4329.hcd:system/etc/firmware/bcm4329.hcd \\
 	vendor/htc/__DEVICE__/proprietary/fw_bcm4329.bin:system/etc/firmware/fw_bcm4329.bin \\
+	vendor/htc/__DEVICE__/proprietary/fw_bcm4329_apsta.bin:system/etc/firmware/fw_bcm4329_apsta.bin \\
 	vendor/htc/__DEVICE__/proprietary/libaudioeq.so:system/lib/libaudioeq.so \\
 	vendor/htc/__DEVICE__/proprietary/libGLESv1_CM.so:system/lib/libGLESv1_CM.so \\
 	vendor/htc/__DEVICE__/proprietary/libGLESv2.so:system/lib/libGLESv2.so \\

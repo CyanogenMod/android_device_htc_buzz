@@ -29,6 +29,8 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full.mk)
 
 $(call inherit-product, device/htc/buzz/buzz.mk)
 
+$(call inherit-product, vendor/htc/buzz/buzz-vendor.mk)
+
 # Discard inherited values and use our own instead.
 PRODUCT_NAME := full_wildfire
 PRODUCT_DEVICE := wildfire

@@ -35,7 +35,7 @@ adb pull /system/lib/hw/lights.msm7k.so ../../../vendor/htc/$DEVICE/proprietary
 adb pull /system/lib/hw/sensors.buzz.so ../../../vendor/htc/$DEVICE/proprietary
 adb pull /system/lib/libGLESv1_CM.so ../../../vendor/htc/$DEVICE/proprietary
 adb pull /system/lib/libGLESv2.so ../../../vendor/htc/$DEVICE/proprietary
-adb pull /system/lib/libOmxCoress.so ../../../vendor/htc/$DEVICE/proprietary
+adb pull /system/lib/libOmxCore.so ../../../vendor/htc/$DEVICE/proprietary
 adb pull /system/lib/libOmxH264Dec.so ../../../vendor/htc/$DEVICE/proprietary
 adb pull /system/lib/libOmxMpeg4Dec.so ../../../vendor/htc/$DEVICE/proprietary
 adb pull /system/lib/libOmxVidEnc.so ../../../vendor/htc/$DEVICE/proprietary
@@ -81,9 +81,9 @@ chmod 755 ../../../vendor/htc/$DEVICE/proprietary/akmd
 
 # Prebuilt libraries that are needed to build open-source libraries
 PRODUCT_COPY_FILES += \\
- 	device/htc/__DEVICE__/custom/logo.rle:root/logo.rle \\
- 	vendor/htc/__DEVICE__/proprietary/libgps.so:obj/lib/libgps.so \\
-    	vendor/htc/__DEVICE__/proprietary/libcamera.so:obj/lib/libcamera.so
+    vendor/htc/__DEVICE__/custom/logo.rle:out/target/product/__DEVICE__/root/logo.rle \\
+    vendor/htc/__DEVICE__/proprietary/libgps.so:out/target/product/__DEVICE__/obj/lib/libgps.so \\
+    vendor/htc/__DEVICE__/proprietary/libcamera.so:out/target/product/__DEVICE__/obj/lib/libcamera.so
 
 # proprietary stuff
 PRODUCT_COPY_FILES += \\
@@ -123,9 +123,7 @@ PRODUCT_COPY_FILES += \\
 	vendor/htc/__DEVICE__/proprietary/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf \\
 	vendor/htc/__DEVICE__/proprietary/akmd:system/bin/akmd \\
 	vendor/htc/__DEVICE__/proprietary/qwerty2.kcm.bin:system/usr/keychars/qwerty2.kcm.bin \\
-	vendor/htc/__DEVICE__/proprietary/qwerty.kcm.bin:system/usr/keychars/qwerty.kcm.bin \\
-	device/htc/buzz/bcm4329.ko:system/lib/modules/bcm4329.ko
-
+	vendor/htc/__DEVICE__/proprietary/qwerty.kcm.bin:system/usr/keychars/qwerty.kcm.bin
 EOF
 
 ./setup-makefiles.sh

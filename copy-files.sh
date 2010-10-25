@@ -50,7 +50,7 @@ cp $STAGESYS/lib/hw/lights.msm7k.so ../../../vendor/htc/$DEVICE/proprietary
 cp $STAGESYS/lib/hw/sensors.buzz.so ../../../vendor/htc/$DEVICE/proprietary
 cp $STAGESYS/lib/libGLESv1_CM.so ../../../vendor/htc/$DEVICE/proprietary
 cp $STAGESYS/lib/libGLESv2.so ../../../vendor/htc/$DEVICE/proprietary
-cp $STAGESYS/lib/libOmxCoress.so ../../../vendor/htc/$DEVICE/proprietary
+cp $STAGESYS/lib/libOmxCore.so ../../../vendor/htc/$DEVICE/proprietary
 cp $STAGESYS/lib/libOmxH264Dec.so ../../../vendor/htc/$DEVICE/proprietary
 cp $STAGESYS/lib/libOmxMpeg4Dec.so ../../../vendor/htc/$DEVICE/proprietary
 cp $STAGESYS/lib/libOmxVidEnc.so ../../../vendor/htc/$DEVICE/proprietary

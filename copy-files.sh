@@ -105,9 +105,6 @@ PRODUCT_COPY_FILES += \\
 	vendor/htc/__DEVICE__/proprietary/AudioPara4.csv:system/etc/AudioPara4.csv \\
 	vendor/htc/__DEVICE__/proprietary/AudioFilter.csv:system/etc/AudioFilter.csv \\
 	vendor/htc/__DEVICE__/proprietary/AudioPreProcess.csv:system/etc/AudioPreProcess.csv \\
-	vendor/htc/__DEVICE__/proprietary/bcm4329.hcd:system/etc/firmware/bcm4329.hcd \\
-	vendor/htc/__DEVICE__/proprietary/fw_bcm4329.bin:system/etc/firmware/fw_bcm4329.bin \\
-	vendor/htc/__DEVICE__/proprietary/fw_bcm4329_apsta.bin:system/etc/firmware/fw_bcm4329_apsta.bin \\
 	vendor/htc/__DEVICE__/proprietary/libaudioeq.so:system/lib/libaudioeq.so \\
 	vendor/htc/__DEVICE__/proprietary/libGLESv1_CM.so:system/lib/libGLESv1_CM.so \\
 	vendor/htc/__DEVICE__/proprietary/libGLESv2.so:system/lib/libGLESv2.so \\
@@ -138,7 +135,10 @@ PRODUCT_COPY_FILES += \\
 	vendor/htc/__DEVICE__/proprietary/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf \\
 	vendor/htc/__DEVICE__/proprietary/akmd:system/bin/akmd \\
 	vendor/htc/__DEVICE__/proprietary/qwerty2.kcm.bin:system/usr/keychars/qwerty2.kcm.bin \\
-	vendor/htc/__DEVICE__/proprietary/qwerty.kcm.bin:system/usr/keychars/qwerty.kcm.bin
+	vendor/htc/__DEVICE__/proprietary/qwerty.kcm.bin:system/usr/keychars/qwerty.kcm.bin \\
+	device/htc/buzz/firmware/bcm4329.hcd:system/etc/firmware/bcm4329.hcd \\
+	device/htc/buzz/firmware/proprietary/fw_bcm4329.bin:system/etc/firmware/fw_bcm4329.bin \\
+	device/htc/buzz/firmware/proprietary/fw_bcm4329_apsta.bin:system/etc/firmware/fw_bcm4329_apsta.bin
 
 
 EOF

@@ -297,8 +297,7 @@ on property:persist.service.adb.enable=1
 on property:persist.service.adb.enable=0
     stop adbd
 
-# Custom autostart scripts, by cn.fyodor
-# a dirty hack
+# Custom autostart scripts
 service bootsound /system/xbin/busybox run-parts /system/etc/init.d
 	user root
 	group root

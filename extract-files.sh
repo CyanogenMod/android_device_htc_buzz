@@ -123,7 +123,8 @@ PRODUCT_COPY_FILES += \\
 	vendor/htc/__DEVICE__/proprietary/qwerty.kcm.bin:system/usr/keychars/qwerty.kcm.bin \\
 	device/htc/buzz/firmware/bcm4329.hcd:system/etc/firmware/bcm4329.hcd \\
 	device/htc/buzz/firmware/proprietary/fw_bcm4329.bin:system/etc/firmware/fw_bcm4329.bin \\
-	device/htc/buzz/firmware/proprietary/fw_bcm4329_apsta.bin:system/etc/firmware/fw_bcm4329_apsta.bin
+	device/htc/buzz/firmware/proprietary/fw_bcm4329_apsta.bin:system/etc/firmware/fw_bcm4329_apsta.bin \\
+	device/htc/buzz/custom/etc/70aufs:system/etc/init.d/70aufs
 
 
 EOF

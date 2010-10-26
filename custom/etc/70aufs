@@ -1,0 +1,108 @@
+#!/system/bin/sh
+
+PATH=/system/xbin:/system/bin:/data/bin
+FLAG=/data/local/dosysoverlay
+SELF=`basename $0`
+
+umask 022
+
+if [ "$SELF" = "aufs" ]; then
+	if [ "$#" -eq 1 ]; then
+		ENABLED=yes
+		[ -f "$FLAG" ] || ENABLED=no
+		case "$1" in
+			--enable)
+				if [ "$ENABLED" = "yes" ]; then
+					echo "Read-write /system overlay is already enabled, doing nothing..."
+				else
+					echo "Enabling read-write /system overlay..." && touch $FLAG
+					echo "Please reboot your phone for changes to take effect..."
+				fi
+			;;
+			--disable)
+				if [ $ENABLED == "no" ]; then
+					echo "Read-write /system overlay is already disabled, doing nothing..."
+				else
+					echo "Disabling read-write /system overlay..." && rm $FLAG
+					echo "Please reboot your phone for changes to take effect..."
+				fi
+			;;
+			*)
+				echo "Usage: $SELF [--enable|--disable]"
+			;;
+		esac
+	else
+		echo "Usage: $SELF [--enable|--disable]"
+	fi 
+	exit 0
+fi
+
+[ -f "$FLAG" ] || exit 0
+
+echo "Setting read-write /system overlay..."
+
+SD=`grep ext[23] /proc/mounts|head -n1|awk '{print $2}'`
+RODIR=/data/sysro
+COUNT=0
+DOT=.
+
+if [ -n "$SD" ]; then
+	RWDIR=${SD}/sysrw
+else
+	while [ ! -e /dev/block/mmcblk0p1 ]; do
+		echo $DOT
+		DOT=${DOT}.
+		sleep 1
+		COUNT=$((COUNT+1))
+		if [ "$COUNT" -ge 5 ]; then
+			echo "No SD card present or SD card too slow, using /data for writing..."
+			NOSD=yes
+			break
+		fi
+	done
+	if [ -z "$NOSD" ]; then
+		DEV=`fdisk -l /dev/block/mmcblk0|grep Linux|head -n1|awk '{print $1}'`
+		if [ -n "$DEV" ]; then
+			SD=/data/sd
+			RWDIR=${SD}/sysrw
+			[ -d "$SD" ] || mkdir $SD
+			e2fsck -y $DEV
+			mount -t auto -o noatime,nodiratime $DEV $SD
+			chown 1000.1000 $SD
+			chmod 775 $SD
+		else
+			mkdir /dev/shm
+			mount -t tmpfs -o size=4m shm /dev/shm
+			RWDIR=/data/sysrw
+			MTOPTS="xino=/dev/shm/.aufs.xino,dirs=${RWDIR}:${RODIR}=ro"
+		fi
+	else
+		mkdir /dev/shm
+		mount -t tmpfs -o size=4m shm /dev/shm
+		RWDIR=/data/sysrw
+		MTOPTS="xino=/dev/shm/.aufs.xino,dirs=${RWDIR}:${RODIR}=ro"
+	fi
+fi 
+
+[ -z "$MTOPTS" ] && MTOPTS="dirs=${RWDIR}:${RODIR}=ro"
+[ -d "$RWDIR" ] || mkdir $RWDIR
+[ -d "$RODIR" ] || mkdir $RODIR
+
+echo "Checking for kernel aufs support..."
+if [ ! -d /sys/fs/aufs ]; then
+	echo "No aufs driver present in kernel, trying to load aufs module..."
+	if insmod /system/lib/modules/aufs.ko > /dev/null 2>&1; then
+		echo "Module aufs loaded..."
+	else
+		echo "Can not load aufs module, aborting..." && exit 0
+	fi
+else
+	echo "Kernel has built-in aufs support..."
+fi
+
+mount --move /system $RODIR
+if $RODIR/xbin/mount.static -t aufs -o $MTOPTS overlay /system; then
+	echo "Overlay set..."
+else
+	echo "Setting overlay failed..."
+fi

@@ -22,9 +22,6 @@ adb pull /system/etc/AudioFilter.csv ../../../vendor/htc/$DEVICE/proprietary
 adb pull /system/etc/AudioPara4.csv ../../../vendor/htc/$DEVICE/proprietary
 adb pull /system/etc/AudioPreProcess.csv ../../../vendor/htc/$DEVICE/proprietary
 adb pull /system/etc/agps_rm ../../../vendor/htc/$DEVICE/proprietary
-adb pull /system/etc/firmware/bcm4329.hcd ../../../vendor/htc/$DEVICE/proprietary
-adb pull /system/etc/firmware/fw_bcm4329.bin ../../../vendor/htc/$DEVICE/proprietary
-adb pull /system/etc/firmware/fw_bcm4329_apsta.bin ../../../vendor/htc/$DEVICE/proprietary
 adb pull /system/etc/pvasflocal.cfg ../../../vendor/htc/$DEVICE/proprietary
 adb pull /system/etc/spn-conf.xml ../../../vendor/htc/$DEVICE/proprietary
 adb pull /system/etc/voicemail-conf.xml ../../../vendor/htc/$DEVICE/proprietary

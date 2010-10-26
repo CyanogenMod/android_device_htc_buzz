@@ -37,9 +37,6 @@ cp $STAGESYS/etc/AudioFilter.csv ../../../vendor/htc/$DEVICE/proprietary
 cp $STAGESYS/etc/AudioPara4.csv ../../../vendor/htc/$DEVICE/proprietary
 cp $STAGESYS/etc/AudioPreProcess.csv ../../../vendor/htc/$DEVICE/proprietary
 cp $STAGESYS/etc/agps_rm ../../../vendor/htc/$DEVICE/proprietary
-cp $STAGESYS/etc/firmware/bcm4329.hcd ../../../vendor/htc/$DEVICE/proprietary
-cp $STAGESYS/etc/firmware/fw_bcm4329.bin ../../../vendor/htc/$DEVICE/proprietary
-cp $STAGESYS/etc/firmware/fw_bcm4329_apsta.bin ../../../vendor/htc/$DEVICE/proprietary
 cp $STAGESYS/etc/pvasflocal.cfg ../../../vendor/htc/$DEVICE/proprietary
 cp $STAGESYS/etc/spn-conf.xml ../../../vendor/htc/$DEVICE/proprietary
 cp $STAGESYS/etc/voicemail-conf.xml ../../../vendor/htc/$DEVICE/proprietary

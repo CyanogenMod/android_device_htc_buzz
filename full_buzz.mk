@@ -32,6 +32,6 @@ $(call inherit-product, device/htc/buzz/buzz.mk)
 $(call inherit-product, vendor/htc/buzz/buzz-vendor.mk)
 
 # Discard inherited values and use our own instead.
-PRODUCT_NAME := full_wildfire
+PRODUCT_NAME := full_buzz
 PRODUCT_DEVICE := wildfire
 PRODUCT_MODEL := Full Android on wildfire

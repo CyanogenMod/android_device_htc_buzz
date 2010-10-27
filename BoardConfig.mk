@@ -59,7 +59,7 @@ TARGET_HARDWARE_3D := true
 BOARD_GPS_LIBRARIES := libgps librpc
  
 # OpenGL drivers config file path
-BOARD_EGL_CFG := device/htc/wildfire/egl.cfg
+BOARD_EGL_CFG := device/htc/buzz/egl.cfg
  
 # No authoring clock for OpenCore on DS
 BOARD_NO_PV_AUTHORING_CLOCK := true

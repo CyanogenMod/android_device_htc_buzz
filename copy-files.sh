@@ -58,7 +58,6 @@ cp $STAGESYS/lib/libgps.so ../../../vendor/htc/$DEVICE/proprietary
 cp $STAGESYS/lib/libhtc_acoustic.so ../../../vendor/htc/$DEVICE/proprietary
 cp $STAGESYS/lib/libhtc_ril.so ../../../vendor/htc/$DEVICE/proprietary
 cp $STAGESYS/lib/libmm-adspsvc.so ../../../vendor/htc/$DEVICE/proprietary
-cp $STAGESYS/lib/libmm-adspsvc.so ../../../vendor/htc/$DEVICE/proprietary
 cp $STAGESYS/lib/liboemcamera.so ../../../vendor/htc/$DEVICE/proprietary
 cp $STAGESYS/lib/libpvasfcommon.so ../../../vendor/htc/$DEVICE/proprietary
 cp $STAGESYS/lib/libpvasflocalpb.so ../../../vendor/htc/$DEVICE/proprietary

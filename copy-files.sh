@@ -92,7 +92,7 @@ chmod 755 ../../../vendor/htc/$DEVICE/proprietary/akmd
 
 # Prebuilt libraries that are needed to build open-source libraries
 PRODUCT_COPY_FILES += \\
-    vendor/htc/__DEVICE__/custom/logo.rle:root/logo.rle \\
+    device/htc/__DEVICE__/custom/logo.rle:root/logo.rle \\
     vendor/htc/__DEVICE__/proprietary/libgps.so:obj/lib/libgps.so \\
     vendor/htc/__DEVICE__/proprietary/libcamera.so:obj/lib/libcamera.so
 

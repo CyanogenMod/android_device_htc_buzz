@@ -21,8 +21,6 @@ TARGET_PREBUILT_KERNEL := device/htc/buzz/kernel
 endif # TARGET_KERNEL_CONFIG
 endif # TARGET_PREBUILT_KERNEL
 
-$(call inherit-product, vendor/htc/buzz/buzz-vendor-blobs.mk)
-
 # Live wallpaper packages
 PRODUCT_PACKAGES := \
     LiveWallpapers \

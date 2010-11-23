@@ -63,7 +63,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/carrier"
-        android:layout_marginTop="20dip"
+        android:layout_marginTop="30dip"
         android:layout_marginLeft="20dip"
         android:paddingBottom="8dip"
         >
@@ -150,8 +150,17 @@
         android:layout_below="@id/customMsg"
         android:layout_marginLeft="24dip"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:layout_marginTop="4.0dip"
+        android:layout_marginTop="4dip"
         android:drawablePadding="4dip"
+        />
+
+    <com.android.internal.widget.SlidingTab
+        android:id="@+id/tab_selector2"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="135dip"
         />
 
     <com.android.internal.widget.SlidingTab
@@ -160,7 +169,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="55dip"
+        android:layout_marginBottom="45dip"
         />
 
     <!-- emergency call button shown when sim is PUKd and tab_selector is
@@ -172,7 +181,7 @@
         android:drawableLeft="@drawable/ic_emergency"
         android:layout_centerInParent="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="55dip"
+        android:layout_marginBottom="38dip"
         style="@style/Widget.Button.Transparent"
         android:drawablePadding="8dip"
         android:visibility="gone"

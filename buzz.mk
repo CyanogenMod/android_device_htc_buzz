@@ -118,5 +118,7 @@ $(call inherit-product, device/htc/common/common.mk)
 
 $(call inherit-product, build/target/product/full.mk)
 
+$(call inherit-product, device/common/gps/gps_eu_supl.mk)
+
 PRODUCT_NAME := generic_buzz
 PRODUCT_DEVICE := buzz

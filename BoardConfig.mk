@@ -21,8 +21,7 @@ TARGET_CPU_ABI := armeabi
  
 TARGET_NO_BOOTLOADER := true
 TARGET_NO_RADIOIMAGE := true
-TARGET_NO_RECOVERY := true
- 
+
 BOARD_USE_FROYO_LIBCAMERA := true
 
 # Wifi related defines

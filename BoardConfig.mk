@@ -13,6 +13,9 @@ USE_CAMERA_STUB := true
  
 TARGET_BOARD_PLATFORM := msm7k
 TARGET_ARCH_VARIANT := armv6j
+ARCH_ARM_HAVE_NEON := false
+
+JS_ENGINE:=v8
 
 TARGET_CPU_ABI := armeabi
  
@@ -20,6 +23,8 @@ TARGET_NO_BOOTLOADER := true
 TARGET_NO_RADIOIMAGE := true
 TARGET_NO_RECOVERY := true
  
+BOARD_USE_FROYO_LIBCAMERA := true
+
 # Wifi related defines
 BOARD_WPA_SUPPLICANT_DRIVER := WEXT
 WPA_SUPPLICANT_VERSION      := VER_0_6_X
@@ -29,48 +34,48 @@ WIFI_DRIVER_FW_STA_PATH     := "/system/etc/firmware/fw_bcm4329.bin"
 WIFI_DRIVER_FW_AP_PATH      := "/system/etc/firmware/fw_bcm4329_apsta.bin"
 WIFI_DRIVER_MODULE_ARG      := "firmware_path=/system/etc/firmware/fw_bcm4329.bin nvram_path=/proc/calibration"
 WIFI_DRIVER_MODULE_NAME     := "bcm4329"
- 
-TARGET_BOOTLOADER_BOARD_NAME := buzz
- 
-TARGET_BOOTLOADER_LIBS := \
-        libboot_board_dream_sapphire_combined \
-        libboot_arch_msm7k \
-        libboot_arch_armv6
- 
-TARGET_BOOTLOADER_LINK_SCRIPT := \
-        hardware/msm7k/boot/boot.ld
- 
-TARGET_PROVIDES_INIT_RC := true
- 
+
+BOARD_LDPI_RECOVERY := true
+
+TARGET_PROVIDES_INIT_TARGET_RC := true
+
 BOARD_KERNEL_CMDLINE := no_console_suspend=1 console=null
 BOARD_KERNEL_BASE := 0x02E00000
- 
+
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_BCM := true
 
 BOARD_HAS_LIMITED_EGL:=true
- 
+
 BOARD_VENDOR_USE_AKMD := akmd
- 
+
 BOARD_VENDOR_QCOM_AMSS_VERSION := 1355
- 
-TARGET_HARDWARE_3D := true
- 
-BOARD_GPS_LIBRARIES := libgps librpc
- 
-# OpenGL drivers config file path
-BOARD_EGL_CFG := device/htc/buzz/egl.cfg
- 
-# No authoring clock for OpenCore on DS
-BOARD_NO_PV_AUTHORING_CLOCK := true
- 
+
+TARGET_HARDWARE_3D := false
+
+BOARD_GPS_LIBRARIES := libgps
+
+BOARD_GPS_NEEDS_XTRA := true
+
 BOARD_USES_QCOM_LIBS := true
+
+BOARD_USES_QCOM_HARDWARE := true
+
+TARGET_BOOTLOADER_BOARD_NAME := buzz
  
 TARGET_RELEASETOOLS_EXTENSIONS := device/htc/common
  
- 
 TARGET_OTA_ASSERT_DEVICE := buzz
-PRODUCT_BUILD_PROP_OVERRIDES += TARGET_BOOTLOADER_BOARD_NAME=buzz
+
+BOARD_NO_RGBX_8888 := true
+
+TARGET_LIBAGL_USE_GRALLOC_COPYBITS := true
+
+BOARD_USE_HTC_USB_FUNCTION_SWITCH := true
+
+BOARD_USE_USB_MASS_STORAGE_SWITCH := true
+
+BOARD_USE_NEW_LIBRIL_HTC := true
  
 # # cat /proc/mtd
 # dev:    size   erasesize  name
@@ -99,3 +104,6 @@ BUILD_WITH_FULL_STAGEFRIGHT := true
  
 # Stop compiling test_* binaries for eng tag
 #STOP_TEST_BINS := true
+
+TARGET_PREBUILT_KERNEL := device/htc/buzz/prebuilt/kernel
+LOCAL_KERNEL := device/htc/buzz/prebuilt/kernel

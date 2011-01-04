@@ -41,12 +41,8 @@ cp $STAGESYS/etc/pvasflocal.cfg ../../../vendor/htc/$DEVICE/proprietary
 cp $STAGESYS/etc/spn-conf.xml ../../../vendor/htc/$DEVICE/proprietary
 cp $STAGESYS/etc/voicemail-conf.xml ../../../vendor/htc/$DEVICE/proprietary
 cp $STAGESYS/etc/wifi/wpa_supplicant.conf ../../../vendor/htc/$DEVICE/proprietary
-cp $STAGESYS/lib/egl/libGLES_android.so ../../../vendor/htc/$DEVICE/proprietary
-cp $STAGESYS/lib/egl/libGLES_qcom.so ../../../vendor/htc/$DEVICE/proprietary
 cp $STAGESYS/lib/hw/lights.msm7k.so ../../../vendor/htc/$DEVICE/proprietary
 cp $STAGESYS/lib/hw/sensors.buzz.so ../../../vendor/htc/$DEVICE/proprietary
-cp $STAGESYS/lib/libGLESv1_CM.so ../../../vendor/htc/$DEVICE/proprietary
-cp $STAGESYS/lib/libGLESv2.so ../../../vendor/htc/$DEVICE/proprietary
 cp $STAGESYS/lib/libOmxCore.so ../../../vendor/htc/$DEVICE/proprietary
 cp $STAGESYS/lib/libOmxH264Dec.so ../../../vendor/htc/$DEVICE/proprietary
 cp $STAGESYS/lib/libOmxMpeg4Dec.so ../../../vendor/htc/$DEVICE/proprietary
@@ -102,9 +98,6 @@ PRODUCT_COPY_FILES += \\
 	vendor/htc/__DEVICE__/proprietary/AudioFilter.csv:system/etc/AudioFilter.csv \\
 	vendor/htc/__DEVICE__/proprietary/AudioPreProcess.csv:system/etc/AudioPreProcess.csv \\
 	vendor/htc/__DEVICE__/proprietary/libaudioeq.so:system/lib/libaudioeq.so \\
-	vendor/htc/__DEVICE__/proprietary/libGLESv1_CM.so:system/lib/libGLESv1_CM.so \\
-	vendor/htc/__DEVICE__/proprietary/libGLESv2.so:system/lib/libGLESv2.so \\
-	vendor/htc/__DEVICE__/proprietary/libGLES_qcom.so:system/lib/egl/libGLES_qcom.so \\
 	vendor/htc/__DEVICE__/proprietary/libgps.so:system/lib/libgps.so \\
 	vendor/htc/__DEVICE__/proprietary/liboemcamera.so:system/lib/liboemcamera.so \\
 	vendor/htc/__DEVICE__/proprietary/libcamera.so:system/lib/libcamera.so \\

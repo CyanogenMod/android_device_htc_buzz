@@ -14,12 +14,7 @@
 # limitations under the License.
 #
 
-# Kernel Targets
-ifeq ($(TARGET_PREBUILT_KERNEL),)
-ifeq ($(TARGET_KERNEL_CONFIG),)
-TARGET_PREBUILT_KERNEL := device/htc/buzz/kernel
-endif # TARGET_KERNEL_CONFIG
-endif # TARGET_PREBUILT_KERNEL
+
 
 # Live wallpaper packages
 PRODUCT_PACKAGES := \
@@ -33,6 +28,7 @@ PRODUCT_PACKAGES := \
 PRODUCT_COPY_FILES := \
     packages/wallpapers/LivePicker/android.software.live_wallpaper.xml:/system/etc/permissions/android.software.live_wallpaper.xml
 
+
 #Gallery 2d
 PRODUCT_PACKAGES += Gallery
 
@@ -44,8 +40,20 @@ PRODUCT_COPY_FILES += \
     frameworks/base/data/etc/android.hardware.wifi.xml:system/etc/permissions/android.hardware.wifi.xml \
     frameworks/base/data/etc/android.hardware.touchscreen.multitouch.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.xml 
 
+# Kernel modules
+#PRODUCT_COPY_FILES += \
+
+ifeq ($(TARGET_PREBUILT_KERNEL),)
+LOCAL_KERNEL := device/htc/buzz/prebuilt/kernel
+else
+LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
+endif
+
 PRODUCT_COPY_FILES += \
-    device/htc/buzz/bcm4329.ko:system/lib/modules/bcm4329.ko
+    $(LOCAL_KERNEL):kernel
+
+PRODUCT_COPY_FILES += \
+    device/htc/buzz/prebuilt/bcm4329.ko:system/lib/modules/bcm4329.ko
 
 PRODUCT_PROPERTY_OVERRIDES := \
     ro.media.dec.jpeg.memcap=10000000
@@ -112,6 +120,14 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # media configuration xml file
 PRODUCT_COPY_FILES += \
     device/htc/buzz/media_profiles.xml:/system/etc/media_profiles.xml
+
+PRODUCT_PACKAGES += \
+    librs_jni \
+    lights.buzz \
+    sensors.buzz \
+    gralloc.msm7k \
+    gps.buzz \
+    copybit.msm7k
 
 # stuff common to all HTC phones
 $(call inherit-product, device/htc/common/common.mk)

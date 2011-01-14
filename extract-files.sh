@@ -27,7 +27,6 @@ adb pull /system/etc/spn-conf.xml ../../../vendor/htc/$DEVICE/proprietary
 adb pull /system/etc/voicemail-conf.xml ../../../vendor/htc/$DEVICE/proprietary
 adb pull /system/etc/wifi/wpa_supplicant.conf ../../../vendor/htc/$DEVICE/proprietary
 adb pull /system/lib/hw/lights.msm7k.so ../../../vendor/htc/$DEVICE/proprietary
-adb pull /system/lib/hw/sensors.buzz.so ../../../vendor/htc/$DEVICE/proprietary
 adb pull /system/lib/libOmxCore.so ../../../vendor/htc/$DEVICE/proprietary
 adb pull /system/lib/libOmxH264Dec.so ../../../vendor/htc/$DEVICE/proprietary
 adb pull /system/lib/libOmxMpeg4Dec.so ../../../vendor/htc/$DEVICE/proprietary
@@ -100,7 +99,6 @@ PRODUCT_COPY_FILES += \\
 	vendor/htc/__DEVICE__/proprietary/libt9.so:system/lib/libt9.so \\
 	vendor/htc/__DEVICE__/proprietary/voicemail-conf.xml:system/etc/voicemail-conf.xml \\
 	vendor/htc/__DEVICE__/proprietary/spn-conf.xml:system/etc/spn-conf.xml \\
-	vendor/htc/__DEVICE__/proprietary/sensors.buzz.so:system/lib/hw/sensors.buzz.so \\
 	vendor/htc/__DEVICE__/proprietary/lights.msm7k.so:system/lib/hw/lights.msm7k.so \\
 	vendor/htc/__DEVICE__/proprietary/libpvasfcommon.so:system/lib/libpvasfcommon.so \\
 	vendor/htc/__DEVICE__/proprietary/libpvasflocalpb.so:system/lib/libpvasflocalpb.so \\

@@ -6,6 +6,7 @@
 # WARNING: This line must come *before* including the proprietary
 # variant, so that it gets overwritten by the parent (which goes
 # against the traditional rules of inheritance).
+
 USE_CAMERA_STUB := true
  
 # inherit from the proprietary version
@@ -21,8 +22,7 @@ TARGET_CPU_ABI := armeabi
  
 TARGET_NO_BOOTLOADER := true
 TARGET_NO_RADIOIMAGE := true
-TARGET_NO_RECOVERY := true
- 
+
 BOARD_USE_FROYO_LIBCAMERA := true
 
 # Wifi related defines
@@ -53,7 +53,9 @@ BOARD_VENDOR_QCOM_AMSS_VERSION := 1355
 
 TARGET_HARDWARE_3D := false
 
-BOARD_GPS_LIBRARIES := libgps
+BOARD_GPS_LIBRARIES := libgps librpc
+
+BOARD_USES_GPSSHIM:=true
 
 BOARD_GPS_NEEDS_XTRA := true
 

@@ -7,8 +7,6 @@
 # variant, so that it gets overwritten by the parent (which goes
 # against the traditional rules of inheritance).
 
-USE_CAMERA_STUB := true
- 
 # inherit from the proprietary version
 -include vendor/htc/buzz/BoardConfigVendor.mk
  
@@ -53,11 +51,14 @@ BOARD_VENDOR_QCOM_AMSS_VERSION := 1355
 
 TARGET_HARDWARE_3D := false
 
-BOARD_GPS_LIBRARIES := libgps librpc
+#BOARD_GPS_LIBRARIES := libgps librpc
 
-BOARD_USES_GPSSHIM:=true
+#BOARD_USES_GPSSHIM:=true
 
-BOARD_GPS_NEEDS_XTRA := true
+#BOARD_GPS_NEEDS_XTRA := true
+
+BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := buzz
+BOARD_VENDOR_QCOM_GPS_LOC_API_AMSS_VERSION := 1240
 
 BOARD_USES_QCOM_LIBS := true
 

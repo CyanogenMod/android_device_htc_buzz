@@ -99,7 +99,6 @@ PRODUCT_COPY_FILES += \\
 	vendor/htc/__DEVICE__/proprietary/libt9.so:system/lib/libt9.so \\
 	vendor/htc/__DEVICE__/proprietary/voicemail-conf.xml:system/etc/voicemail-conf.xml \\
 	vendor/htc/__DEVICE__/proprietary/spn-conf.xml:system/etc/spn-conf.xml \\
-	vendor/htc/__DEVICE__/proprietary/lights.msm7k.so:system/lib/hw/lights.msm7k.so \\
 	vendor/htc/__DEVICE__/proprietary/libpvasfcommon.so:system/lib/libpvasfcommon.so \\
 	vendor/htc/__DEVICE__/proprietary/libpvasflocalpb.so:system/lib/libpvasflocalpb.so \\
 	vendor/htc/__DEVICE__/proprietary/libpvasflocalpbreg.so:system/lib/libpvasflocalpbreg.so \\

@@ -137,7 +137,7 @@ PRODUCT_PACKAGES += \
 # stuff common to all HTC phones
 $(call inherit-product, device/htc/common/common.mk)
 
-$(call inherit-product, build/target/product/full.mk)
+$(call inherit-product, build/target/product/full_base.mk)
 
 $(call inherit-product, device/common/gps/gps_eu_supl.mk)
 

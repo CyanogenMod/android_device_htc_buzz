@@ -89,7 +89,7 @@
         <!-- Number Display Field, padded for correct text alignment -->
         <EditText android:id="@+id/dtmfDialerField"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="62dp"
             android:layout_marginTop="14dp"
             android:layout_marginBottom="6dp"
             android:layout_marginLeft="3dp"

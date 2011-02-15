@@ -48,6 +48,7 @@ PRODUCT_PACKAGES := \\
 
 # Pick up overlay for features that depend on non-open-source files
 DEVICE_PACKAGE_OVERLAYS := device/htc/__DEVICE__/overlay
+DEVICE_PACKAGE_OVERLAYS := vendor/cyanogen/overlay/ldpi
 
 \$(call inherit-product, vendor/htc/__DEVICE__/__DEVICE__-vendor-blobs.mk)
 

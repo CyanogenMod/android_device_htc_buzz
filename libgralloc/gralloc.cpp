@@ -199,16 +199,12 @@ static int init_pmem_area_locked(private_module_t* m)
         
         size_t size;
         pmem_region region;
-		/* We have to "manually" split the pmem region. 
-           6 for us, the rest for ADSP 
-
         if (ioctl(master_fd, PMEM_GET_TOTAL_SIZE, &region) < 0) {
             LOGE("PMEM_GET_TOTAL_SIZE failed, limp mode");
             size = 8<<20;   // 8 MiB
         } else {
             size = region.len;
-        }*/
-		size = 6<<20;
+        }
         sAllocator.setSize(size);
 
         void* base = mmap(0, size, 

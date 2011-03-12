@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <!--
 /*
 ** Copyright 2009, The Android Open Source Project
@@ -23,4 +23,9 @@
 	<!-- set this to true if the device doesn't have a GPU, or an EGL
 	     library is for some reason unavailable -->
 	<bool name="softwareGLOnly">true</bool>
+
+	<!-- FFC parameter filtering -->
+	<bool name="ffc_canFocus">true</bool>
+	<bool name="ffc_canZoom">true</bool>
+	<string name="ffc_supportedEffects"></string>
 </resources>

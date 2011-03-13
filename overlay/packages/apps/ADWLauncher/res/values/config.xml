@@ -1,5 +1,0 @@
-<resources>
-    <bool name="config_desktop_indicator_autohide">true</bool>
-    <!-- 1=sensor, 2=portrait, 3=landscape -->
-    <string name="config_orientation_default">2</string>
-</resources>

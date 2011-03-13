@@ -1,41 +1,28 @@
-# Copyright (C) 2011 The CyanogenMod Project
+# config.mk
 #
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
+# Product-specific compile-time definitions.
 #
-#      http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-
-#
-# This file sets variables that control the way modules are built
-# thorughout the system. It should not be used to conditionally
-# disable makefiles (the proper mechanism to control what gets
-# included in a build is to use PRODUCT_PACKAGES in a product
-# definition file).
-#
-
+ 
 # WARNING: This line must come *before* including the proprietary
 # variant, so that it gets overwritten by the parent (which goes
 # against the traditional rules of inheritance).
-USE_CAMERA_STUB := true
 
+ 
 # inherit from the proprietary version
 -include vendor/htc/buzz/BoardConfigVendor.mk
-
-# ARMv6-compatible processor rev 5 (v6l)
+ 
 TARGET_BOARD_PLATFORM := msm7k
 TARGET_ARCH_VARIANT := armv6j
-TARGET_CPU_ABI := armeabi-v6j
-TARGET_CPU_ABI2 := armeabi
+ARCH_ARM_HAVE_NEON := false
 
+JS_ENGINE:=v8
+
+TARGET_CPU_ABI := armeabi
+ 
 TARGET_NO_BOOTLOADER := true
 TARGET_NO_RADIOIMAGE := true
+
+BOARD_USE_FROYO_LIBCAMERA := true
 
 # Wifi related defines
 BOARD_WPA_SUPPLICANT_DRIVER := WEXT
@@ -47,12 +34,12 @@ WIFI_DRIVER_FW_AP_PATH      := "/system/etc/firmware/fw_bcm4329_apsta.bin"
 WIFI_DRIVER_MODULE_ARG      := "firmware_path=/system/etc/firmware/fw_bcm4329.bin nvram_path=/proc/calibration"
 WIFI_DRIVER_MODULE_NAME     := "bcm4329"
 
-BOARD_KERNEL_CMDLINE := no_console_suspend=1 console=null
-BOARD_KERNEL_BASE := 0x02E00000
-
 BOARD_LDPI_RECOVERY := true
 
-BOARD_USE_FROYO_LIBCAMERA := true
+TARGET_PROVIDES_INIT_TARGET_RC := true
+
+BOARD_KERNEL_CMDLINE := no_console_suspend=1 console=null
+BOARD_KERNEL_BASE := 0x02E00000
 
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_BCM := true
@@ -60,45 +47,70 @@ BOARD_HAVE_BLUETOOTH_BCM := true
 BOARD_HAVE_FM_RADIO := true
 BOARD_GLOBAL_CFLAGS += -DHAVE_FM_RADIO
 
+BOARD_HAS_LIMITED_EGL:=true
+
 BOARD_VENDOR_USE_AKMD := akmd
 
 BOARD_VENDOR_QCOM_AMSS_VERSION := 1355
 
 TARGET_HARDWARE_3D := false
-BOARD_HAS_LIMITED_EGL := true
-BOARD_NO_RGBX_8888 := true
-BOARD_AVOID_DRAW_TEXTURE_EXTENSION := true
-TARGET_LIBAGL_USE_GRALLOC_COPYBITS := true
+
+#BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := buzz
+#BOARD_VENDOR_QCOM_GPS_LOC_API_AMSS_VERSION := 1240
 
 BOARD_GPS_LIBRARIES := libgps librpc
-BOARD_USES_GPSSHIM := true
+
+BOARD_USES_GPSSHIM:=true
+
+BOARD_GPS_NEEDS_XTRA := true
 
 BOARD_USES_QCOM_LIBS := true
 
+BOARD_USES_QCOM_HARDWARE := true
+
 TARGET_BOOTLOADER_BOARD_NAME := buzz
+ 
+TARGET_RELEASETOOLS_EXTENSIONS := device/htc/common
+ 
 TARGET_OTA_ASSERT_DEVICE := buzz
 
+BOARD_NO_RGBX_8888 := true
+
+TARGET_LIBAGL_USE_GRALLOC_COPYBITS := true
+
+BOARD_USE_HTC_USB_FUNCTION_SWITCH := true
+
+BOARD_USE_USB_MASS_STORAGE_SWITCH := true
+
 BOARD_USE_NEW_LIBRIL_HTC := true
-
-JS_ENGINE := v8
-
+ 
 # # cat /proc/mtd
 # dev:    size   erasesize  name
-# mtd0: 000a0000 00020000 "misc"
-# mtd1: 00420000 00020000 "recovery"
-# mtd2: 002c0000 00020000 "boot"
-# mtd3: 0fa00000 00020000 "system"
-# mtd4: 02800000 00020000 "cache"
-# mtd5: 0af20000 00020000 "userdata"
-# Changed for Buzz
-BOARD_BOOTIMAGE_PARTITION_SIZE := 0x002c0000
-BOARD_RECOVERYIMAGE_PARTITION_SIZE := 0x00420000
-BOARD_SYSTEMIMAGE_PARTITION_SIZE := 0x0fa00000
-BOARD_USERDATAIMAGE_PARTITION_SIZE := 0x0af20000
-BOARD_FLASH_BLOCK_SIZE := 131072
+# mtd0: 00040000 00020000 "misc"
+# mtd1: 00500000 00020000 "recovery"
+# mtd2: 00280000 00020000 "boot"
+# mtd3: 05a00000 00020000 "system"
+# mtd4: 05000000 00020000 "cache"
+# mtd5: 127c0000 00020000 "userdata"
+# Changed for wildfire
+BOARD_BOOTIMAGE_MAX_SIZE := $(call image-size-from-data-size,0x00280000)
+BOARD_RECOVERYIMAGE_MAX_SIZE := $(call image-size-from-data-size,0x00500000)
+BOARD_SYSTEMIMAGE_MAX_SIZE := $(call image-size-from-data-size,0x09600000)
+BOARD_USERDATAIMAGE_MAX_SIZE := $(call image-size-from-data-size,0x0a520000)
+ 
+# The size of a block that can be marked bad.
+BOARD_FLASH_BLOCK_SIZE := 153600
+ 
+# Stagefright fully enabled
+BUILD_WITH_FULL_STAGEFRIGHT := true
+ 
+ 
+# JIT built in, but disabled by default
+#WITH_JIT := true
+#ENABLE_JSC_JIT := true
+ 
+# Stop compiling test_* binaries for eng tag
+#STOP_TEST_BINS := true
 
-TARGET_RELEASETOOLS_EXTENSIONS := device/htc/common
 TARGET_PREBUILT_KERNEL := device/htc/buzz/prebuilt/kernel
-
-# Add LUNFILE configuration to the system
-BOARD_UMS_LUNFILE := "/sys/devices/platform/usb_mass_storage/lun0/file"
+LOCAL_KERNEL := device/htc/buzz/prebuilt/kernel

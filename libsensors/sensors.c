@@ -32,7 +32,7 @@
 
 static const struct sensor_t sSensorList[] = {
         { "BMA150 3-axis Accelerometer",
-                "Bosch",
+                "Bosh",
                 1, SENSORS_HANDLE_BASE+ID_A,
                 SENSOR_TYPE_ACCELEROMETER, 4.0f*9.81f, (4.0f*9.81f)/256.0f, 0.2f, 0, { } },
         { "AK8973 3-axis Magnetic field sensor",

@@ -1,4 +1,5 @@
-## Vold 2.0 Wildfire fstab
+## Vold 2.0 fstab for HTC Wildfire
+#
 ## - San Mehat (san@android.com)
 ## 
 
@@ -12,7 +13,5 @@
 ## <sysfs_path> - List of sysfs paths to source devices
 ######################
 
-## Example of a standard sdcard mount for the emulator / Dream
 # Mounts the first usable partition of the specified device
-dev_mount sdcard /mnt/sdcard auto /devices/platform/goldfish_mmc.0 /devices/platform/msm_sdcc.2/mmc_host/mmc1
-
+dev_mount sdcard /mnt/sdcard auto /devices/platform/usb_mass_storage/lun0 /devices/platform/msm_sdcc.2/mmc_host/mmc1

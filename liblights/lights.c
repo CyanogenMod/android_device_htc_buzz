@@ -156,7 +156,7 @@ set_speaker_light_locked(struct light_device_t* dev,
 
     colorRGB = state->color;
 
-    LOGD("set_speaker_light_locked colorRGB=%08X, onMS=%d, offMS=%d\n",
+    LOGV("set_speaker_light_locked colorRGB=%08X, onMS=%d, offMS=%d\n",
             colorRGB, onMS, offMS);
 
     red = (colorRGB >> 16) & 0xFF;

@@ -282,7 +282,7 @@ const struct hw_module_t HAL_MODULE_INFO_SYM = {
     .version_major = 1,
     .version_minor = 0,
     .id = LIGHTS_HARDWARE_MODULE_ID,
-    .name = "Tattoo lights module",
+    .name = "Buzz lights module",
     .author = "CyanogenMod",
     .methods = &lights_module_methods,
 };

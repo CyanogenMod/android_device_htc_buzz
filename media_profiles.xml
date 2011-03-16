@@ -92,18 +92,17 @@
                    channels="1" />
         </EncoderProfile>
 
-        <EncoderProfile quality="low" fileFormat="mp4" duration="60">
+        <EncoderProfile quality="low" fileFormat="3gp" duration="60">
             <Video codec="h263"
                    bitRate="192000"
                    width="176"
                    height="144"
-                   frameRate="24" />
+                   frameRate="20" />
 
             <Audio codec="amrnb"
                    bitRate="12200"
                    sampleRate="8000"
                    channels="1" />
-
         </EncoderProfile>
 
         <ImageEncoding quality="90" />
@@ -128,7 +127,7 @@
         minBitRate="192000" maxBitRate="420000"
         minFrameWidth="176" maxFrameWidth="352"
         minFrameHeight="144" maxFrameHeight="288"
-        minFrameRate="24" maxFrameRate="30" />
+        minFrameRate="1" maxFrameRate="30" />
 
     <VideoEncoderCap name="m4v" enabled="true"
         minBitRate="192000" maxBitRate="420000"

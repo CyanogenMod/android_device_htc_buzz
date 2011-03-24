@@ -36,18 +36,25 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # RIL properties
 PRODUCT_PROPERTY_OVERRIDES += \
     rild.libpath=/system/lib/libhtc_ril.so \
+    ro.ril.disable.fd.plmn.prefix=23402,23410,23411 \
+    ro.ril.htcmaskw1.bitmask=4294967295 \
+    ro.ril.htcmaskw1=14449 \
     ro.ril.ecc.HTC-WWE=999 \
     ro.ril.ecc.HTC-ELL=92,93,94 \
     ro.ril.enable.a52.HTC-ITA=1 \
     ro.ril.enable.a53.HTC-ITA=1 \
     ro.ril.enable.a52=0 \
     ro.ril.enable.a53=1 \
-    ro.ril.vmail.23415=1571,BT \
+    ro.ril.enable.dtm=1 \
+    ro.ril.enable.sdr=0 \
+    ro.ril.gprsclass=12 \
     ro.ril.hsdpa.category=8 \
-    ro.ril.htcmaskw1.bitmask=4294967295 \
-    ro.ril.htcmaskw1=14449 \
+    ro.ril.hsupa.category=5 \
+    ro.ril.hsxpa=2 \
+    ro.ril.vmail.23415=1571,BT \
+    ro.ril.vmail.27203=171 \
     ro.ril.def.agps.mode=2 \
-    ro.ril.gprsclass=12
+    ro.ril.avoid.pdp.overlap=1
 
 # Time between scans in seconds. Keep it high to minimize battery drain.
 # This only affects the case in which there are remembered access points,

@@ -50,10 +50,10 @@
 
     <!-- List of regexpressions describing the interface (if any) that represent tetherable
          USB interfaces.  If the device doesn't want to support tething over USB this should
-         be empty.  An example would be "usb.*" -->
+         be empty.  An example would be "usb.*"
     <string-array translatable="false" name="config_tether_usb_regexs">
         <item>"usb0"</item>
-    </string-array>
+    </string-array> -->
 
     <!-- List of regexpressions describing the interface (if any) that represent tetherable
          Wifi interfaces.  If the device doesn't want to support tethering over Wifi this
@@ -157,10 +157,6 @@
         <item>0</item>
     </integer-array>
 
-    <!-- Component name of the default wallpaper. This will be ImageWallpaper if not 
-         specified -->
-    <string name="default_wallpaper_component">@null</string>
-
     <!-- Component name of the service providing network location support. -->
     <string name="config_networkLocationProvider">com.google.android.location.NetworkLocationProvider</string>
 
@@ -168,6 +164,5 @@
     <string name="config_geocodeProvider">com.google.android.location.GeocodeProvider</string>
 
     <!-- Configure rotary bottom margin -->
-    <integer name="config_rotaryMarginBottomDIP">37</integer>
-
+    <integer name="config_rotaryMarginBottomDIP">20</integer>
 </resources>

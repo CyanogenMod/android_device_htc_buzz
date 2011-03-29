@@ -53,6 +53,9 @@ on boot
     write /sys/block/mtdblock4/bdi/read_ahead_kb 4
     write /sys/block/mtdblock5/bdi/read_ahead_kb 4
 
+    # increase read throughput from sd card
+    write /sys/block/mmcblk0/bdi/read_ahead_kb 2048
+
     # enable low memory killer to check file pages
     write /sys/module/lowmemorykiller/parameters/minfile 0,0,0,5120,5632,6144
     write /sys/module/lowmemorykiller/parameters/check_filepages 1

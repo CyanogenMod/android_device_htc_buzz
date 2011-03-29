@@ -1,0 +1,63 @@
+
+#
+# system.prop for buzz
+#
+
+# Density in DPI of the LCD of this board. This is used to scale the UI
+# appropriately. If this property is not defined, the default value is 160 dpi.
+ro.sf.lcd_density=120
+
+# View configuration for QVGA.
+view.fading_edge_length=8
+view.touch_slop=15
+view.minimum_fling_velocity=25
+view.scroll_friction=0.008
+
+# RIL specific configuration.
+rild.libpath=/system/lib/libhtc_ril.so
+ro.ril.ecc.HTC-WWE=999
+ro.ril.ecc.HTC-ELL=92,93,94
+ro.ril.enable.a52.HTC-ITA=1
+ro.ril.enable.a53.HTC-ITA=1
+ro.ril.enable.a52=0
+ro.ril.enable.a53=1
+ro.ril.vmail.23415=1571,BT
+ro.ril.hsdpa.category=8
+ro.ril.htcmaskw1.bitmask=4294967295
+ro.ril.htcmaskw1=14449
+ro.ril.def.agps.mode=2
+ro.ril.gprsclass=12
+
+# Modify MMS APN retry timer from 5s to 2s.
+ro.gsm.2nd_data_retry_config=max_retries=3, 2000, 2000, 2000
+
+# Time between scans in seconds. Keep it high to minimize battery drain.
+# This only affects the case in which there are remembered access points,
+# but none are in range.
+wifi.interface=eth0
+wifi.supplicant_scan_interval=45
+
+# Allow or deny tethering.
+ro.tether.denied=false
+
+# Default network type.
+# 0 => WCDMA Preferred.
+ro.telephony.default_network=0
+
+# Enable Google-specific location features,
+# like NetworkLocationProvider and LocationCollector.
+ro.com.google.locationfeatures=1
+
+# The OpenGL ES API level that is natively supported by this device.
+# This is a 16.16 fixed point number.
+ro.opengles.version=65536
+
+# Disable fs check on boot by default.
+sys.checkfs.fat=false
+
+# Performance settings.
+dalvik.vm.execution-mode=int:jit
+dalvik.vm.heapsize=24m
+
+# Increase SKIA decode memory capability for progressive jpg file.
+ro.media.dec.jpeg.memcap=20000000

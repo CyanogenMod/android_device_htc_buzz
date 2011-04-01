@@ -164,5 +164,5 @@
     <string name="config_geocodeProvider">com.google.android.location.GeocodeProvider</string>
 
     <!-- Configure rotary bottom margin -->
-    <integer name="config_rotaryMarginBottomDIP">20</integer>
+    <integer name="config_rotaryMarginBottomDIP">0</integer>
 </resources>

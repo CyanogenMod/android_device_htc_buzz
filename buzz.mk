@@ -67,6 +67,8 @@ PRODUCT_PACKAGES += \
     libOmxCore \
     libOmxVidEnc
 
+CUSTOM_LOCALES := ldpi,mdpi
+
 # Kernel Targets
 ifeq ($(TARGET_PREBUILT_KERNEL),)
 LOCAL_KERNEL := device/htc/buzz/prebuilt/kernel

@@ -165,4 +165,8 @@
 
     <!-- Configure rotary bottom margin -->
     <integer name="config_rotaryMarginBottomDIP">0</integer>
+    <integer name="config_rotaryMarginBottomDIP">20</integer>
+
+    <!-- Configure lense unlock time label offset -->
+    <integer name="config_lenseTimeLabelOffsetDIP">30</integer>
 </resources>

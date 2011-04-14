@@ -26,6 +26,16 @@ on boot
     chown system system /dev/ttyHSUSB0
     chown system system /dev/smd9
 
+    # set radio_feedback permissions
+    chown radio radio /dev/radio_feedback
+    chmod 0660 /dev/radio_feedback
+
+    chown radio radio /sys/module/pm/parameters/idle_sleep_mode
+
+    # for Flip to speaker
+    chown radio radio /sys/class/htc_accelerometer/accelerometer/PhoneOnOffFlag
+    chown radio radio /sys/class/htc_ecompass/ecompass/PhoneOnOffFlag
+
     # permissions for liblights
     chown system system /sys/class/leds/green/brightness
     chown system system /sys/class/leds/green/blink

@@ -22,9 +22,11 @@ on boot
     mkdir /data/misc/dhcp 0770 dhcp dhcp
     chown dhcp dhcp /data/misc/dhcp
 
-    chown system system /sys/module/serial/parameters/modem_enabled
-    chown system system /dev/ttyHSUSB0
-    chown system system /dev/smd9
+    chown radio radio /sys/module/pm/parameters/idle_sleep_mode
+
+    # for Flip to speaker
+    chown radio radio /sys/class/htc_accelerometer/accelerometer/PhoneOnOffFlag
+    chown radio radio /sys/class/htc_ecompass/ecompass/PhoneOnOffFlag
 
     # permissions for liblights
     chown system system /sys/class/leds/green/brightness

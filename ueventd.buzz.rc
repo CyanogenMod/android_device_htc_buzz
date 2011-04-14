@@ -1,1 +1,7 @@
-mtd@misc 0460 radio diag
+mtd@misc                0460    radio       diag
+
+/dev/system_bus_freq    0660    system      system
+/dev/cpu_dma_latency    0660    system      system
+
+/dev/radio_feedback     0660    radio       radio
+/dev/smd9               0600    system      system

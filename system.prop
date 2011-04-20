@@ -28,6 +28,9 @@ ro.ril.htcmaskw1=14449
 ro.ril.def.agps.mode=2
 ro.ril.gprsclass=12
 
+# For HSDPA low throughput
+ro.ril.disable.power.collapse=1
+
 # Modify MMS APN retry timer from 5s to 2s.
 ro.gsm.2nd_data_retry_config=max_retries=3, 2000, 2000, 2000
 
@@ -36,6 +39,9 @@ ro.gsm.2nd_data_retry_config=max_retries=3, 2000, 2000, 2000
 # but none are in range.
 wifi.interface=eth0
 wifi.supplicant_scan_interval=45
+
+# Mobile data interfaces
+mobiledata.interfaces=rmnet0,rmnet1,rmnet2
 
 # Allow or deny tethering.
 ro.tether.denied=false
@@ -58,6 +64,8 @@ sys.checkfs.fat=false
 # Performance settings.
 dalvik.vm.execution-mode=int:jit
 dalvik.vm.heapsize=24m
+persist.sys.use_dithering=1
+persist.sys.purgeable_assets=1
 
 # Increase SKIA decode memory capability for progressive jpg file.
 ro.media.dec.jpeg.memcap=20000000

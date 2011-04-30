@@ -22,6 +22,12 @@ on boot
     mkdir /data/misc/dhcp 0770 dhcp dhcp
     chown dhcp dhcp /data/misc/dhcp
 
+    chown radio system /sys/module/gpio_event/parameters/phone_call_status
+    chmod 0664 /sys/module/gpio_event/parameters/phone_call_status
+
+    chown radio system /sys/camera_led_status/led_ril_status
+    chmod 0640 /sys/camera_led_status/led_ril_status
+
     chown radio radio /sys/module/pm/parameters/idle_sleep_mode
 
     # for Flip to speaker

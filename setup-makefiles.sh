@@ -37,9 +37,7 @@ mkdir -p ../../../vendor/htc/$DEVICE
 
 # Live wallpaper packages
 PRODUCT_PACKAGES := \\
-    LiveWallpapers \\
     LiveWallpapersPicker \\
-    VisualizationWallpapers \\
     librs_jni
 
 \$(call inherit-product, vendor/htc/__DEVICE__/__DEVICE__-vendor-blobs.mk)

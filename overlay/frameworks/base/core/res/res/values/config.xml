@@ -31,9 +31,6 @@
          the blur effect where it isn't worth the performance hit. -->
     <bool name="config_sf_slowBlur">true</bool>
 
-    <!-- XXXXX NOTE THE FOLLOWING RESOURCES USE THE WRONG NAMING CONVENTION.
-         Please don't copy them, copy anything else. -->
-
     <!-- This string array should be overridden by the device to present a list of network
          attributes.  This is used by the connectivity manager to decide which networks can coexist
          based on the hardware -->
@@ -73,10 +70,12 @@
          Software implementation will be used if config_hardware_auto_brightness_available is not set -->
     <bool name="config_automatic_brightness_available">true</bool>
 
-    <!-- If this is true, the screen will fade off. -->
-    <bool name="config_animateScreenLights">true</bool>
+    <!-- If this is true, the screen will fade off.
+         Setting it to false enables the electron beam -->
+    <bool name="config_animateScreenLights">false</bool>
 
-    <!-- XXXXXX END OF RESOURCES USING WRONG NAMING CONVENTION -->
+    <!-- Enable the screen-off animation -->
+    <bool name="config_enableScreenOffAnimation">false</bool>
 
     <!-- Indicate whether the SD card is accessible without removing the battery. -->
     <bool name="config_batterySdCardAccessibility">true</bool>

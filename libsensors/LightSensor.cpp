@@ -33,7 +33,7 @@
 LightSensor::LightSensor()
     : SensorBase(LS_DEVICE_NAME, "lightsensor-level"),
       mEnabled(0),
-      mInputReader(10),
+      mInputReader(4),
       mHasPendingEvent(false)
 {
     mPendingEvent.version = sizeof(sensors_event_t);
@@ -143,8 +143,8 @@ int LightSensor::readEvents(sensors_event_t* data, int count)
 float LightSensor::indexToValue(size_t index) const
 {
     static const float luxValues[10] = {
-            1.0, 3.0, 5.0, 15.0, 38.0,
-            150.0, 273.0, 298.0, 323.0, 1023.0
+            10.0, 160.0, 225.0, 320.0, 640.0,
+            1280.0, 2600.0, 5800.0, 8000.0, 10240.0
     };
 
     const size_t maxIndex = sizeof(luxValues)/sizeof(*luxValues) - 1;

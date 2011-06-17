@@ -41,7 +41,7 @@
 /******************************************************************************/
 
 #if defined(COPYBIT_MSM7K)
-#define MAX_SCALE_FACTOR    (3)
+#define MAX_SCALE_FACTOR    (4)
 #define MAX_DIMENSION       (4096)
 #elif defined(COPYBIT_QSD8K)
 #define MAX_SCALE_FACTOR    (8)
@@ -134,6 +134,10 @@ static int get_format(int format) {
 static void set_image(struct mdp_img *img, const struct copybit_image_t *rhs) 
 {
     private_handle_t* hnd = (private_handle_t*)rhs->handle;
+    if(hnd == NULL){
+        LOGE("copybit: Invalid handle");
+        return;
+    }
     img->width      = rhs->w;
     img->height     = rhs->h;
     img->format     = get_format(rhs->format);

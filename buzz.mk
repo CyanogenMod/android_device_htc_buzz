@@ -39,7 +39,7 @@ PRODUCT_COPY_FILES += \
     device/htc/buzz/init.buzz.rc:root/init.buzz.rc \
     device/htc/buzz/ueventd.buzz.rc:root/ueventd.buzz.rc \
     device/htc/buzz/vold.fstab:system/etc/vold.fstab \
-    device/htc/buzz/custom/sysctl.conf:system/etc/sysctl.conf
+    device/htc/buzz/sysctl.conf:system/etc/sysctl.conf
 
 # Keychars and keylayout files
 PRODUCT_COPY_FILES += \

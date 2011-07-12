@@ -34,7 +34,7 @@
 #include <cutils/atomic.h>
 
 #include <linux/fb.h>
-#include "linux/msm_mdp.h"
+#include <linux/msm_mdp.h>
 
 #include "gralloc_priv.h"
 #include "gr.h"

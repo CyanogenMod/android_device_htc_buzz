@@ -142,20 +142,7 @@ static void set_image(struct mdp_img *img, const struct copybit_image_t *rhs)
     img->height     = rhs->h;
     img->format     = get_format(rhs->format);
     img->offset     = hnd->offset;
-#if defined(COPYBIT_MSM7K)
-    if (hnd->flags & private_handle_t::PRIV_FLAGS_USES_GPU) {
-        img->offset += hnd->map_offset;
-        img->memory_id = hnd->gpu_fd;
-        if (img->format == MDP_RGBA_8888) {
-            // msm7201A GPU only supports BGRA_8888 destinations
-            img->format = MDP_BGRA_8888;
-        }
-    } else {
-        img->memory_id = hnd->fd;
-    }
-#else
     img->memory_id  = hnd->fd;
-#endif
 }
 /** setup rectangles */
 static void set_rects(struct copybit_context_t *dev,
@@ -198,10 +185,13 @@ static void set_rects(struct copybit_context_t *dev,
 }
 
 /** setup mdp request */
-static void set_infos(struct copybit_context_t *dev, struct mdp_blit_req *req) {
+static void set_infos(struct copybit_context_t *dev, struct mdp_blit_req *req, int flags) {
     req->alpha = dev->mAlpha;
     req->transp_mask = MDP_TRANSP_NOP;
-    req->flags = dev->mFlags | MDP_BLEND_FG_PREMULT;
+    req->flags = dev->mFlags | flags;
+#if defined(COPYBIT_QSD8K)
+    req->flags |= MDP_BLEND_FG_PREMULT;
+#endif
 }
 
 /** copy the bits */
@@ -387,7 +377,9 @@ static int stretch_copybit(
         while ((status == 0) && region->next(region, &clip)) {
             intersect(&clip, &bounds, &clip);
             mdp_blit_req* req = &list.req[list.count];
-            set_infos(ctx, req);
+            int flags = 0;
+
+            set_infos(ctx, req, flags);
             set_image(&req->dst, dst);
             set_image(&req->src, src);
             set_rects(ctx, req, dst_rect, src_rect, &clip);

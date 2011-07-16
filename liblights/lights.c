@@ -47,9 +47,10 @@ char const*const GREEN_BLINK_FILE = "/sys/class/leds/green/blink";
 char const*const LCD_BACKLIGHT_FILE = "/sys/class/leds/lcd-backlight/brightness";
 
 enum {
+	LED_BLANK,
 	LED_AMBER,
 	LED_GREEN,
-	LED_BLANK,
+	LED_BOTH,
 };
 
 /**
@@ -89,17 +90,23 @@ static void set_speaker_light_locked (struct light_device_t *dev, struct light_s
 	unsigned int colorRGB = state->color & 0xFFFFFF;
 	unsigned int color = LED_BLANK;
 
-	if ((colorRGB >> 8)&0xFF)
-		color = LED_GREEN;
-	if ((colorRGB >> 16)&0xFF)
-		color = LED_AMBER;
-
-	int amber = (colorRGB >> 16)&0xFF;
-	int green = (colorRGB >> 8)&0xFF;
+	if (colorRGB & 0xFF)
+		color |= LED_GREEN;
+	else {
+		if ((colorRGB >> 8) & 0xFF)
+			color |= LED_GREEN;
+		if ((colorRGB >> 16) & 0xFF)
+			color |= LED_AMBER;
+	}
 
 	switch (state->flashMode) {
+		case LIGHT_FLASH_HARDWARE:
 		case LIGHT_FLASH_TIMED:
 			switch (color) {
+				case LED_BOTH:
+					write_int (AMBER_BLINK_FILE, 1);
+					write_int (GREEN_BLINK_FILE, 1);
+					break;
 				case LED_AMBER:
 					write_int (AMBER_BLINK_FILE, 1);
 					write_int (GREEN_LED_FILE, 0);
@@ -120,6 +127,10 @@ static void set_speaker_light_locked (struct light_device_t *dev, struct light_s
 			break;
 		case LIGHT_FLASH_NONE:
 			switch (color) {
+				case LED_BOTH:
+					write_int (AMBER_LED_FILE, 1);
+					write_int (GREEN_LED_FILE, 1);
+					break;
 				case LED_AMBER:
 					write_int (AMBER_LED_FILE, 1);
 					write_int (GREEN_LED_FILE, 0);
@@ -139,7 +150,6 @@ static void set_speaker_light_locked (struct light_device_t *dev, struct light_s
 			LOGE("set_led_state colorRGB=%08X, unknown mode %d\n",
 					colorRGB, state->flashMode);
 	}
-
 }
 
 static void handle_speaker_battery_locked (struct light_device_t *dev) {
@@ -193,7 +203,7 @@ static int set_light_battery (struct light_device_t* dev,
 
 static int set_light_attention (struct light_device_t* dev,
 		struct light_state_t const* state) {
-	/* buzz has no attention, bad buzz */
+	/* buzz has no attention */
 
 	return 0;
 }
@@ -250,7 +260,6 @@ static int open_lights (const struct hw_module_t* module, char const* name,
 
 	*device = (struct hw_device_t*) dev;
 	return 0;
-
 }
 
 static struct hw_module_methods_t lights_module_methods = {

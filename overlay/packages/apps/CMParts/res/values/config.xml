@@ -1,10 +1,23 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Whether or not to display the trackball settings -->
     <bool name="has_trackball">true</bool>
+
+    <!-- Whether or not to display the camera button settings -->
+    <bool name="has_camera_button">false</bool>
+
+    <!-- Notification LED can show any color -->
     <bool name="has_rgb_notification_led">false</bool>
+
+    <!-- Notification LED can show green and amber only -->
     <bool name="has_dual_notification_led">false</bool>
+
+    <!-- Notification LED mixes up amber with green and red -->
+    <bool name="has_mixable_dual_notification_led">true</bool>
 
     <!-- LED Flashlight -->
     <bool name="has_led_flash">true</bool>
+
+    <!-- Whether or not to display search button settings -->
+    <bool name="has_search_button">true</bool>
 </resources>

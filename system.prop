@@ -65,7 +65,7 @@ sys.checkfs.fat=false
 dalvik.vm.execution-mode=int:jit
 dalvik.vm.heapsize=24m
 persist.sys.use_dithering=1
-persist.sys.purgeable_assets=1
+persist.sys.purgeable_assets=0
 
 # Increase SKIA decode memory capability for progressive jpg file.
 ro.media.dec.jpeg.memcap=20000000

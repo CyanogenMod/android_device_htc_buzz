@@ -47,8 +47,9 @@ WIFI_DRIVER_FW_AP_PATH      := "/system/etc/firmware/fw_bcm4329_apsta.bin"
 WIFI_DRIVER_MODULE_ARG      := "firmware_path=/system/etc/firmware/fw_bcm4329.bin nvram_path=/proc/calibration"
 WIFI_DRIVER_MODULE_NAME     := "bcm4329"
 
-BOARD_KERNEL_CMDLINE := no_console_suspend=1 console=null
+BOARD_KERNEL_CMDLINE := no_console_suspend=1
 BOARD_KERNEL_BASE := 0x02E00000
+BOARD_KERNEL_PAGESIZE := 2048
 
 BOARD_LDPI_RECOVERY := true
 BOARD_USES_RECOVERY_CHARGEMODE := true
@@ -70,7 +71,6 @@ BOARD_HAS_LIMITED_EGL := true
 BOARD_NO_RGBX_8888 := true
 BOARD_AVOID_DRAW_TEXTURE_EXTENSION := true
 TARGET_LIBAGL_USE_GRALLOC_COPYBITS := true
-
 TARGET_ELECTRONBEAM_FRAMES := 10
 
 BOARD_GPS_LIBRARIES := libgps librpc

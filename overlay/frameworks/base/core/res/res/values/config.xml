@@ -29,7 +29,7 @@
     <!-- Flag indicating whether the surface flinger is inefficient
          at performing a blur.  Used by parts of the UI to turn off
          the blur effect where it isn't worth the performance hit. -->
-    <bool name="config_sf_slowBlur">true</bool>
+    <bool name="config_sf_slowBlur">false</bool>
 
     <!-- This string array should be overridden by the device to present a list of network
          attributes.  This is used by the connectivity manager to decide which networks can coexist
@@ -110,16 +110,16 @@
          than the size of the config_autoBrightnessLevels array.
          This must be overridden in platform specific overlays -->
     <integer-array name="config_autoBrightnessLcdBacklightValues">
-        <item>102</item>
-        <item>102</item>
-        <item>102</item>
-        <item>102</item>
-        <item>120</item>
-        <item>143</item>
-        <item>163</item>
-        <item>186</item>
-        <item>208</item>
-        <item>231</item>
+        <item>100</item>
+        <item>100</item>
+        <item>100</item>
+        <item>142</item>
+        <item>142</item>
+        <item>180</item>
+        <item>180</item>
+        <item>255</item>
+        <item>255</item>
+        <item>255</item>
     </integer-array>
 
     <!-- Array of output values for button backlight corresponding to the LUX values
@@ -127,11 +127,11 @@
          than the size of the config_autoBrightnessLevels array.
          This must be overridden in platform specific overlays -->
     <integer-array name="config_autoBrightnessButtonBacklightValues">
-        <item>30</item>
-        <item>30</item>
-        <item>30</item>
-        <item>30</item>
-        <item>30</item>
+        <item>255</item>
+        <item>255</item>
+        <item>255</item>
+        <item>255</item>
+        <item>-1</item>
         <item>0</item>
         <item>0</item>
         <item>0</item>

@@ -70,7 +70,7 @@ on boot
     write /sys/block/mmcblk0/bdi/read_ahead_kb 1024
 
     # enable low memory killer to check file pages
-    write /sys/module/lowmemorykiller/parameters/minfile 0,0,0,5120,5632,6144
+    write /sys/module/lowmemorykiller/parameters/minfile 2560,4096,6144,12288,14336,18432
     write /sys/module/lowmemorykiller/parameters/check_filepages 1
 
 service wpa_supplicant /system/bin/logwrapper /system/bin/wpa_supplicant \

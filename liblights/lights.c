@@ -75,7 +75,6 @@ static int write_int (const char* path, int value) {
 	close (fd);
 
 	return written == -1 ? -errno : 0;
-
 }
 
 void init_globals (void) {
@@ -86,29 +85,40 @@ static int is_lit (struct light_state_t const* state) {
 	return state->color & 0x00ffffff;
 }
 
-static void set_speaker_light_locked (struct light_device_t *dev, struct light_state_t *state) {
+static unsigned int rgb_to_led(struct light_state_t *state) {
 	unsigned int colorRGB = state->color & 0xFFFFFF;
-	unsigned int color = LED_BLANK;
+	unsigned int colorLED = LED_BLANK;
 
 	if (colorRGB & 0xFF)
-		color |= LED_GREEN;
+		colorLED |= LED_GREEN;
 	else {
 		if ((colorRGB >> 8) & 0xFF)
-			color |= LED_GREEN;
+			colorLED |= LED_GREEN;
 		if ((colorRGB >> 16) & 0xFF)
-			color |= LED_AMBER;
+			colorLED |= LED_AMBER;
 	}
+
+	return colorLED;
+}
+
+static void set_speaker_light_locked (struct light_device_t *dev,
+		struct light_state_t *state) {
+	unsigned int colorRGB = state->color & 0xFFFFFF;
+	unsigned int colorLED = rgb_to_led(state);
 
 	switch (state->flashMode) {
 		case LIGHT_FLASH_HARDWARE:
 		case LIGHT_FLASH_TIMED:
-			switch (color) {
+			switch (colorLED) {
 				case LED_BOTH:
 					write_int (AMBER_BLINK_FILE, 1);
 					write_int (GREEN_BLINK_FILE, 1);
 					break;
 				case LED_AMBER:
-					write_int (AMBER_BLINK_FILE, 1);
+					if (state == &g_battery)
+						write_int (AMBER_BLINK_FILE, 4);
+					else
+						write_int (AMBER_BLINK_FILE, 1);
 					write_int (GREEN_LED_FILE, 0);
 					break;
 				case LED_GREEN:
@@ -120,13 +130,13 @@ static void set_speaker_light_locked (struct light_device_t *dev, struct light_s
 					write_int (GREEN_BLINK_FILE, 0);
 					break;
 				default:
-					LOGE("set_led_state colorRGB=%08X, unknown color\n",
-							colorRGB);
+					LOGE("set_led_state: unknown color, colorRGB=0x%08X colorLED=%d\n",
+							colorRGB, colorLED);
 					break;
 			}
 			break;
 		case LIGHT_FLASH_NONE:
-			switch (color) {
+			switch (colorLED) {
 				case LED_BOTH:
 					write_int (AMBER_LED_FILE, 1);
 					write_int (GREEN_LED_FILE, 1);
@@ -143,17 +153,45 @@ static void set_speaker_light_locked (struct light_device_t *dev, struct light_s
 					write_int (AMBER_LED_FILE, 0);
 					write_int (GREEN_LED_FILE, 0);
 					break;
-
+				default:
+					LOGE("set_led_state: unknown color, colorRGB=0x%08X colorLED=%d\n",
+							colorRGB, colorLED);
+					break;
 			}
 			break;
 		default:
-			LOGE("set_led_state colorRGB=%08X, unknown mode %d\n",
+			LOGE("set_led_state: unknown mode, colorRGB=0x%08X flashMode=%d\n",
 					colorRGB, state->flashMode);
 	}
 }
 
+static void set_speaker_light_locked_dual(struct light_device_t *dev,
+		struct light_state_t *bstate,  struct light_state_t *nstate) {
+	unsigned int bcolorRGB = bstate->color & 0xFFFFFF;
+	unsigned int bcolorLED = rgb_to_led(bstate);
+
+	switch (bcolorLED) {
+		case LED_BOTH:
+		case LED_AMBER:
+			write_int (AMBER_BLINK_FILE, 4);
+			write_int (GREEN_LED_FILE, 1);
+			break;
+		case LED_GREEN:
+			write_int (AMBER_BLINK_FILE, 1);
+			write_int (GREEN_LED_FILE, 1);
+			break;
+		case LED_BLANK:
+		default:
+			LOGE("set_led_state_dual: unexpected color, bcolorRGB=0x%08X bcolorLED=%d\n",
+					bcolorRGB, bcolorLED);
+			break;
+	}
+}
+
 static void handle_speaker_battery_locked (struct light_device_t *dev) {
-	if (is_lit (&g_battery)) {
+	if (is_lit (&g_battery) && is_lit (&g_notification)) {
+		set_speaker_light_locked_dual(dev, &g_battery, &g_notification);
+	} else if (is_lit (&g_battery)) {
 		set_speaker_light_locked (dev, &g_battery);
 	} else {
 		set_speaker_light_locked (dev, &g_notification);
@@ -268,7 +306,7 @@ static struct hw_module_methods_t lights_module_methods = {
 
 const struct hw_module_t HAL_MODULE_INFO_SYM = {
 	.tag = HARDWARE_MODULE_TAG,
-	.version_major = 1,
+	.version_major = 2,
 	.version_minor = 0,
 	.id = LIGHTS_HARDWARE_MODULE_ID,
 	.name = "Buzz lights module",

@@ -53,9 +53,7 @@ PRODUCT_COPY_FILES += \
 
 # Firmware
 PRODUCT_COPY_FILES += \
-    device/htc/buzz/firmware/bcm4329.hcd:system/etc/firmware/bcm4329.hcd \
-    device/htc/buzz/firmware/fw_bcm4329.bin:system/etc/firmware/fw_bcm4329.bin \
-    device/htc/buzz/firmware/fw_bcm4329_apsta.bin:system/etc/firmware/fw_bcm4329_apsta.bin
+    device/htc/buzz/firmware/bcm4329.hcd:system/etc/firmware/bcm4329.hcd
 
 PRODUCT_PACKAGES += \
     librs_jni \

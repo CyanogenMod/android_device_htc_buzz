@@ -15,6 +15,8 @@
 
 LOCAL_PATH := $(call my-dir)
 
+ifeq ($(TARGET_DEVICE),buzz)
+
 # HAL module implemenation, not prelinked and stored in
 # hw/<OVERLAY_HARDWARE_MODULE_ID>.<ro.product.board>.so
 include $(CLEAR_VARS)
@@ -32,3 +34,5 @@ LOCAL_SRC_FILES := 	\
 LOCAL_MODULE := gralloc.buzz
 LOCAL_CFLAGS:= -DLOG_TAG=\"gralloc\"
 include $(BUILD_SHARED_LIBRARY)
+
+endif # TARGET_DEVICE

@@ -103,4 +103,3 @@ BOARD_FLASH_BLOCK_SIZE := 131072
 TARGET_RELEASETOOLS_EXTENSIONS := device/htc/common
 
 TARGET_PREBUILT_KERNEL := device/htc/buzz/prebuilt/kernel
-TARGET_PREBUILT_RECOVERY_KERNEL := device/htc/buzz/prebuilt/recovery_kernel

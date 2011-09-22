@@ -29,7 +29,8 @@ PRODUCT_COPY_FILES += \
     frameworks/base/data/etc/android.hardware.sensor.proximity.xml:system/etc/permissions/android.hardware.sensor.proximity.xml \
     frameworks/base/data/etc/android.hardware.sensor.light.xml:system/etc/permissions/android.hardware.sensor.light.xml \
     frameworks/base/data/etc/android.hardware.touchscreen.multitouch.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.xml \
-    frameworks/base/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml
+    frameworks/base/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml \
+    frameworks/base/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml
 
 # Media configuration xml file
 PRODUCT_COPY_FILES += \
@@ -38,8 +39,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/htc/buzz/init.buzz.rc:root/init.buzz.rc \
     device/htc/buzz/ueventd.buzz.rc:root/ueventd.buzz.rc \
-    device/htc/buzz/vold.fstab:system/etc/vold.fstab \
-    device/htc/buzz/sysctl.conf:system/etc/sysctl.conf
+    device/htc/buzz/vold.fstab:system/etc/vold.fstab
 
 # Keychars and keylayout files
 PRODUCT_COPY_FILES += \

@@ -167,4 +167,7 @@
 
     <!-- Configure lense unlock time label offset -->
     <integer name="config_lenseTimeLabelOffsetDIP">40</integer>
+
+    <!-- Configure ring lockscreen bottom margin -->
+    <integer name="config_ringBaselineBottomDIP">90</integer>
 </resources>

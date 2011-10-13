@@ -172,5 +172,5 @@
     <integer name="config_ringBaselineBottomDIP">110</integer>
 
     <!-- Configure ring lockscreen center ring offset -->
-    <integer name="config_ringCenterOffsetDIP">14</integer>
+    <integer name="config_ringCenterOffsetDIP">18</integer>
 </resources>

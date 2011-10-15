@@ -67,5 +67,8 @@ dalvik.vm.heapsize=24m
 persist.sys.use_dithering=1
 persist.sys.purgeable_assets=0
 
+# Lock dirty_ratio to 20 when USB is mounted for improved transfer speed
+ro.vold.umsdirtyratio=20
+
 # Increase SKIA decode memory capability for progressive jpg file.
 ro.media.dec.jpeg.memcap=20000000

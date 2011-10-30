@@ -31,6 +31,12 @@ ro.ril.gprsclass=12
 # For HSDPA low throughput
 ro.ril.disable.power.collapse=1
 
+# For PDP overlap problem
+ro.ril.avoid.pdp.overlap=1
+
+# update the acoustic table for Buzz NEL lab testing
+ro.ril.update.acoustic.table=1
+
 # Modify MMS APN retry timer from 5s to 2s.
 ro.gsm.2nd_data_retry_config=max_retries=3, 2000, 2000, 2000
 

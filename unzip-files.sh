@@ -24,6 +24,7 @@ unzip -j -o ../../../${DEVICE}_update.zip system/bin/akmd -d ../../../vendor/$MA
 chmod 755 ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/akmd
 unzip -j -o ../../../${DEVICE}_update.zip system/etc/AudioFilter.csv -d ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
 unzip -j -o ../../../${DEVICE}_update.zip system/etc/AudioPara4.csv -d ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
+unzip -j -o ../../../${DEVICE}_update.zip system/etc/AudioPara_HTC_NEL.csv -d ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
 unzip -j -o ../../../${DEVICE}_update.zip system/etc/AudioPreProcess.csv -d ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
 unzip -j -o ../../../${DEVICE}_update.zip system/lib/libOmxH264Dec.so -d ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
 unzip -j -o ../../../${DEVICE}_update.zip system/lib/libOmxMpeg4Dec.so -d ../../../vendor/$MANUFACTURER/$DEVICE/proprietary

@@ -22,6 +22,7 @@ adb pull /system/bin/akmd ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
 chmod 755 ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/akmd
 adb pull /system/etc/AudioFilter.csv ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
 adb pull /system/etc/AudioPara4.csv ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
+adb pull /system/etc/AudioPara_HTC_NEL.csv ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
 adb pull /system/etc/AudioPreProcess.csv ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
 adb pull /system/lib/libOmxH264Dec.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
 adb pull /system/lib/libOmxMpeg4Dec.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary

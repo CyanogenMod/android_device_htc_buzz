@@ -82,9 +82,9 @@
         <EncoderProfile quality="high" fileFormat="3gp" duration="60">
             <Video codec="h263"
                    bitRate="720000"
-                   width="352"
+                   width="384"
                    height="288"
-                   frameRate="20" />
+                   frameRate="24" />
 
             <Audio codec="aac"
                    bitRate="96000"
@@ -95,8 +95,8 @@
         <EncoderProfile quality="low" fileFormat="3gp" duration="60">
             <Video codec="h263"
                    bitRate="192000"
-                   width="176"
-                   height="144"
+                   width="240"
+                   height="160"
                    frameRate="20" />
 
             <Audio codec="amrnb"
@@ -125,19 +125,19 @@
     -->
     <VideoEncoderCap name="h263" enabled="true"
         minBitRate="192000" maxBitRate="720000"
-        minFrameWidth="176" maxFrameWidth="352"
+        minFrameWidth="176" maxFrameWidth="384"
         minFrameHeight="144" maxFrameHeight="288"
         minFrameRate="1" maxFrameRate="30" />
 
     <VideoEncoderCap name="m4v" enabled="true"
         minBitRate="192000" maxBitRate="420000"
-        minFrameWidth="176" maxFrameWidth="352"
+        minFrameWidth="176" maxFrameWidth="384"
         minFrameHeight="144" maxFrameHeight="288"
         minFrameRate="1" maxFrameRate="30" />
 
     <AudioEncoderCap name="aac" enabled="true"
         minBitRate="8192" maxBitRate="96000"
-        minSampleRate="8000" maxSampleRate="16000"
+        minSampleRate="16000" maxSampleRate="16000"
         minChannels="1" maxChannels="2" />
 
     <AudioEncoderCap name="amrnb" enabled="true"

@@ -46,6 +46,9 @@ service detect_key /sbin/detect_key
     disabled
     oneshot
 
+service adbd /sbin/adbd recovery
+    disabled
+
 on property:persist.service.adb.enable=1
     start adbd
 

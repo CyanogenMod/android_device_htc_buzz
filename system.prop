@@ -73,6 +73,7 @@ dalvik.vm.heapsize=32m
 ro.compcache.default=0
 persist.sys.use_dithering=1
 persist.sys.purgeable_assets=0
+persist.sys.rotationanimation=false
 
 # Lock dirty_ratio to 20 when USB is mounted for improved transfer speed
 ro.vold.umsdirtyratio=20

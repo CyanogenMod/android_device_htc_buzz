@@ -1,4 +1,5 @@
 # Copyright (C) 2008 The Android Open Source Project
+# Copyright (C) 2010 The CyanogenMod Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -12,23 +13,25 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-
 LOCAL_PATH := $(call my-dir)
 
 # HAL module implemenation, not prelinked and stored in
 # hw/<OVERLAY_HARDWARE_MODULE_ID>.<ro.product.board>.so
+
 include $(CLEAR_VARS)
-LOCAL_MODULE_TAGS := optional
-LOCAL_PRELINK_MODULE := false
-LOCAL_MODULE_PATH := $(TARGET_OUT_SHARED_LIBRARIES)/hw
+
+LOCAL_MODULE_TAGS      := optional
+LOCAL_PRELINK_MODULE   := false
+LOCAL_MODULE_PATH      := $(TARGET_OUT_SHARED_LIBRARIES)/hw
 LOCAL_SHARED_LIBRARIES := liblog libcutils
 
-LOCAL_SRC_FILES := 	\
-	allocator.cpp 	\
-	gralloc.cpp 	\
-	framebuffer.cpp \
-	mapper.cpp
-	
+LOCAL_SRC_FILES :=  \
+    allocator.cpp   \
+    gralloc.cpp     \
+    framebuffer.cpp \
+    mapper.cpp
+
 LOCAL_MODULE := gralloc.buzz
-LOCAL_CFLAGS:= -DLOG_TAG=\"gralloc\"
+LOCAL_CFLAGS := -DLOG_TAG=\"gralloc\"
+
 include $(BUILD_SHARED_LIBRARY)
